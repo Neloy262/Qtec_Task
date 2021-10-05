@@ -82,7 +82,7 @@ function Cart(props) {
                 <h3 style={{ color: "white" }}>PAY</h3>
               </div>{" "}
               <div style={{ textAlign: "end" }}>
-                <h3 style={{ color: "white" }}>{props.total}</h3>
+                <h3 style={{ color: "white" }}>BDT {props.total}</h3>
               </div>
             </div>
           </button>
