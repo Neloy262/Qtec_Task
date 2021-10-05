@@ -7,3 +7,60 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.info {
+  text-align: end;
+  margin-right: 5px;
+}
+
+.CartFooter {
+  display: grid;
+  margin-bottom: 20px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+.CartFooter li {
+  margin: 10px;
+}
+.pay {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: center;
+}
+
+.buttonText {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.paybtn {
+  width: 95%;
+  height: 56px;
+  background-color: #8f00ff;
+  border: 1px;
+  border-radius: 5px;
+}
+.CartHeader {
+  position: relative;
+  bottom: 6px;
+  color: #8f00ff;
+  display: inline-block;
+}
+.imageContainer {
+  width: fit-content;
+  border: 1px;
+  border-radius: 5px;
+  border-style: outset;
+  background-color: white;
+}
+.ItemCount {
+  border: 1px;
+  position: relative;
+  bottom: 57px;
+  left: 35px;
+  border-style: solid;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: #03fca9;
+}

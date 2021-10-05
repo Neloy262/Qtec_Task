@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Cart from "./components/Cart";
+
 import "./styles/App.css";
 import DisplayItems from "./components/DisplayItems";
 
@@ -106,37 +107,76 @@ const items = [
 
 function App() {
   const [Items, setItems] = useState(items);
-
+  const [total, setTotal] = useState(0);
   const onProductClicked = (id) => {
+    let amount = 0;
     let temp = Items.map((i) => i);
     for (let i = 0; i < temp.length; i++) {
       if (temp[i].id === id) {
+        amount = temp[i].price;
         temp[i].count += 1;
       }
     }
     setItems(temp);
+    setTotal((prev) => prev + amount);
   };
 
   const remove = (id) => {
+    let deduct = 0;
     let temp = Items.map((i) => i);
     for (let i = 0; i < temp.length; i++) {
       if (temp[i].id === id) {
+        deduct = temp[i].count * temp[i].price;
         temp[i].count = 0;
       }
     }
     setItems(temp);
+    setTotal((prev) => prev - deduct);
   };
 
   return (
-    <div className="container">
-      <div>
-        <DisplayItems item={Items} selected={onProductClicked} />
+    <div>
+      <div className="container">
+        <div
+          style={{
+            maxHeight: "100%",
+            maxWidth: "100%",
+            overflowY: "auto",
+            overflowX: "auto",
+          }}
+        >
+          <DisplayItems item={Items} selected={onProductClicked} />
+        </div>
+        <div className="Cart">
+          <Cart items={Items} remove={remove} total={total} />
+        </div>
       </div>
-      <div className="Cart">
-        <Cart items={Items} remove={remove} />
+      <div className="hl" style={{ width: "66%" }}></div>
+      <div className="Footer">
+        <div style={{ lineHeight: "46px" }}>
+          Dhanmondi <div className="vl"></div>Register1
+          <div className="vl"></div>New Sale
+        </div>
+        <div>
+          <button
+            style={{ float: "right", fontSize: "16px" }}
+            className="btn"
+            type="button"
+          >
+            New Sale
+          </button>
+          <button
+            style={{ float: "right", marginRight: "15px", fontSize: "16px" }}
+            className="btn"
+            type="button"
+          >
+            Options
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
 export default App;
+// ##################################

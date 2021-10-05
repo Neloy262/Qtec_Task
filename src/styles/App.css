@@ -1,12 +1,53 @@
 .container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 35px;
-    margin: 10px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 4fr 1fr;
+  grid-gap: 35px;
+  margin: 10px;
+  /* overflow: hidden; */
 }
-.Cart{
-    border: 1px;
-    border-radius: 5px;
-    border-style: outset;
-    background-color:white;
+.Cart {
+  border: 1px;
+  border-radius: 5px;
+  border-style: outset;
+  background-color: white;
+  height: fit-content;
+}
+
+.Footer {
+  display: grid;
+  /* grid-column-start: 1; */
+  /* grid-column-end: 2; */
+  grid-template-columns: repeat(3, 1fr);
+  margin: 15px;
+}
+.vl {
+  border-left: 1px solid black;
+  height: 12px;
+  width: fit-content;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.FooterContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+.btn {
+  background-color: white;
+  border: 1px;
+  border-style: outset;
+  height: 45px;
+  border-radius: 3px;
+}
+.hl {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+
+  /* margin: 1em 0; */
+  padding: 0;
 }

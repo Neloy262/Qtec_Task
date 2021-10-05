@@ -3,12 +3,20 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import IconButton from "@mui/material/IconButton";
-
+import PersonIcon from "@mui/icons-material/Person";
 import "../styles/Cart.css";
 
 function Cart(props) {
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ height: "100%", position: "relative" }}>
+      <div style={{ margin: "20px" }}>
+        <div style={{ display: "inline-block" }}>
+          <PersonIcon fontSize="medium" style={{ color: "#8F00FF" }} />
+        </div>
+        <div className="CartHeader">Add Customer</div>
+        <hr />
+      </div>
+
       {props.items.map((i) => {
         if (i.count > 0) {
           return (
@@ -21,15 +29,7 @@ function Cart(props) {
                       alignItems: "center",
                     }}
                   >
-                    <div
-                      style={{
-                        width: "fit-content",
-                        border: "1px",
-                        borderRadius: "5px",
-                        borderStyle: "outset",
-                        backgroundColor: "white",
-                      }}
-                    >
+                    <div className="imageContainer">
                       <img
                         style={{
                           width: "40px",
@@ -40,22 +40,7 @@ function Cart(props) {
                         alt="Not found"
                       />
                     </div>
-                    <div
-                      style={{
-                        border: "1px",
-                        position: "relative",
-                        bottom: "57px",
-                        left: "35px",
-                        borderStyle: "solid",
-                        borderRadius: "50%",
-                        width: "20px",
-                        height: "20px",
-                        textAlign: "center",
-                        backgroundColor: "#03fca9",
-                      }}
-                    >
-                      {i.count}
-                    </div>
+                    <div className="ItemCount">{i.count}</div>
                   </div>
                   <div style={{ width: "fit-content" }}>{i.name}</div>
                   <div>BDT{i.price * i.count}</div>
@@ -72,8 +57,37 @@ function Cart(props) {
             </Card>
           );
         }
-        return;
       })}
+      <div className="CartFooter">
+        <div style={{ marginLeft: "5px" }}>
+          <ul style={{ listStyleType: "none", padding: "0px" }}>
+            <li>Discount</li>
+            <li>Subtotal</li>
+            <li>Tax (0%)</li>
+            <li>Total</li>
+          </ul>
+        </div>
+        <div className="info">
+          <ul style={{ listStyleType: "none", padding: "0px" }}>
+            <li>BDT 0.00</li>
+            <li>BDT {props.total}</li>
+            <li>BDT 0</li>
+            <li>BDT {props.total}</li>
+          </ul>
+        </div>
+        <div className="pay">
+          <button className="paybtn" type="button">
+            <div className="buttonText">
+              <div style={{ textAlign: "start" }}>
+                <h3 style={{ color: "white" }}>PAY</h3>
+              </div>{" "}
+              <div style={{ textAlign: "end" }}>
+                <h3 style={{ color: "white" }}>{props.total}</h3>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

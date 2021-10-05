@@ -8,16 +8,12 @@ function DisplayItems(props) {
     props.selected(item.id);
   };
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <input className="searchInput" type="text" placeholder="Search.." />
       <div className="ItemCard">
         {props.item.map((i) => {
           return (
-            <div
-              key={i.id}
-              // style={{ width: "250px", height: "150px" }}
-              onClick={select.bind(this, i)}
-            >
+            <div key={i.id} onClick={select.bind(this, i)}>
               <Card>
                 <CardContent>
                   <img
